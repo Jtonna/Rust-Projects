@@ -1,7 +1,9 @@
-use chrono::{DateTime, Utc};
+use super::auditable::Auditable;
 
-pub struct Auditable {
-    pub creation_date: DateTime<Utc>,
-    pub completion_date: Option<DateTime<Utc>>,
-    pub last_updated_date: DateTime<Utc>,
+pub struct Task {
+    pub id: usize,
+    pub title: String,
+    pub description: String,
+    pub completed: bool,
+    pub audit: Auditable,
 }
