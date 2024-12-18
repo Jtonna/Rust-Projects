@@ -11,6 +11,14 @@ pub struct Auditable {
 impl Auditable {
 
     // Constructor
+    pub fn with_values(creation_date: DateTime<Utc>, completion_date: Option<DateTime<Utc>>, last_updated_date: DateTime<Utc>) -> Self {
+        let readable_date = last_updated_date.to_rfc3339();
+        Auditable {
+            creation_date: creation_date,
+            completion_date: completion_date,
+            last_updated_date: last_updated_date
+        }
+    }
     pub fn new() -> Self {
         let now = Utc::now();
         Auditable {
